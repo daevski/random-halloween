@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David's Costume 2021</title>
+    <style>
+        html,
+        body {
+            overflow: auto;
+            min-height: 100%;
+        }
+
+        .box {
+            /* width: 90%; */
+            height: 90vh;
+            /* border: 5px dashed #f7a239; */
+            text-align: center;
+        }
+
+        img {
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>{{ selection }}</h1>
+        <img src="{{ url_for('static', path='/img/') }}{{selection}}" alt="">
+    </div>
+</body>
+
+</html>
