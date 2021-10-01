@@ -69,13 +69,13 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: .github/workflows/aws-ecs-task-definition.json
-        container-name: nginx
+        container-name: daevski-random-halloween-ecs-fargate-container
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: nginx-service
+        service: daevski-random-halloween-ecs-fargate-service
         cluster: daevski-random-halloween-ecs-fargate-cluster
         wait-for-service-stability: true
