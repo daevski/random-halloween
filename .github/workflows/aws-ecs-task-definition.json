@@ -9,12 +9,12 @@
                 "logDriver": "awslogs",
                 "secretOptions": null,
                 "options": {
-                    "awslogs-group": "/ecs/first-run-task-definition",
+                    "awslogs-group": "/ecs/daevski-random-halloween-ecs-task-definition",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
             },
-            "entryPoint": [],
+            "entryPoint": null,
             "portMappings": [
                 {
                     "hostPort": 80,
@@ -22,7 +22,7 @@
                     "containerPort": 80
                 }
             ],
-            "command": [],
+            "command": null,
             "linuxParameters": null,
             "cpu": 256,
             "environment": [],
@@ -33,19 +33,19 @@
             "workingDirectory": null,
             "secrets": null,
             "dockerSecurityOptions": null,
-            "memory": null,
-            "memoryReservation": 512,
+            "memory": 300,
+            "memoryReservation": null,
             "volumesFrom": [],
-            "stopTimeout": null,
-            "image": "nginx:latest",
-            "startTimeout": null,
+            "stopTimeout": 30,
+            "image": "125765595335.dkr.ecr.us-east-1.amazonaws.com/random-halloween:731e7a897ee15d3993c8809ce77ef3df7cdabc1a",
+            "startTimeout": 30,
             "firelensConfiguration": null,
             "dependsOn": null,
             "disableNetworking": null,
             "interactive": null,
             "healthCheck": null,
             "essential": true,
-            "links": [],
+            "links": null,
             "hostname": null,
             "extraHosts": null,
             "pseudoTerminal": null,
@@ -54,18 +54,18 @@
             "dockerLabels": null,
             "systemControls": null,
             "privileged": null,
-            "name": "nginx"
+            "name": "daevski-random-halloween-ecs-fargate-container"
         }
     ],
     "placementConstraints": [],
     "memory": "512",
-    "taskRoleArn": null,
+    "taskRoleArn": "arn:aws:iam::125765595335:role/ecsTaskExecutionRole",
     "compatibilities": [
         "EC2",
         "FARGATE"
     ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:125765595335:task-definition/first-run-task-definition:1",
-    "family": "first-run-task-definition",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:125765595335:task-definition/daevski-random-halloween-ecs-task-definition:1",
+    "family": "daevski-random-halloween-ecs-task-definition",
     "requiresAttributes": [
         {
             "targetId": null,
@@ -83,13 +83,31 @@
             "targetId": null,
             "targetType": null,
             "value": null,
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "targetId": null,
             "targetType": null,
             "value": null,
-            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "ecs.capability.container-ordering"
+        },
+        {
+            "targetId": null,
+            "targetType": null,
+            "value": null,
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "targetId": null,
