@@ -22,6 +22,10 @@ img_path = Path('./web/static/img').resolve()
 @app.get('/')
 def root(request: Request):
     images: List[Path] = app_random.get_images(img_path)
+
+    if len(images) < 1:
+        return 'No images found!'
+
     spooky_number: int = app_random.get_spooky_number(1, len(images) - 1)
     selection: str = images[spooky_number].name
     return templates.TemplateResponse(
