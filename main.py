@@ -22,7 +22,12 @@ def root(request: Request):
         return 'No images found!'
 
     spooky_number: int = app_random.get_spooky_number(1, len(images) - 1)
-    selection: str = images[spooky_number].name
+    selection: Path = images[spooky_number]
     return templates.TemplateResponse(
-        "index.html", {"request": request, "selection": selection}
+        "index.html",
+        {
+            "request": request,
+            "selection_filename": selection.name,
+            "selection_title": selection.stem,
+        },
     )
