@@ -1,0 +1,15 @@
+# VS Code
+.vscode
+
+# Python caches
+.mypy_cache
+__pycache__
+
+# git
+.git
+.gitignore
+.gitattributes
+.github
+
+#Ignoring all the markdown files
+*.md

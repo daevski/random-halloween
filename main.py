@@ -9,14 +9,9 @@ from starlette.requests import Request
 import randomizer as app_random
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="web/static"), name="static")
-templates = Jinja2Templates(directory="web/templates")
+app.mount("/static", StaticFiles(directory="./web/static"), name="static")
+templates = Jinja2Templates(directory="./web/templates")
 img_path = Path('./web/static/img').resolve()
-
-# TODO: Mount static directory with images
-# TODO: Count total number of images, and use that value as `end` argument to get_spooky_number()
-# TODO: Render image from images directory based on random number.
-# TODO: Create page header with app version and copyright
 
 
 @app.get('/')
